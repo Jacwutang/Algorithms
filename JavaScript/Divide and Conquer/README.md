@@ -1,4 +1,5 @@
 1. binarySearch.js
+
 Task. The goal in this code problem is to implement the binary search algorithm.
 Input Format. The first line of the input contains an integer 𝑛 and a sequence 𝑎0 < 𝑎1 < . . . < 𝑎𝑛−1 of
 𝑛 pairwise distinct positive integers in increasing order. The next line contains an integer 𝑘 and 𝑘
