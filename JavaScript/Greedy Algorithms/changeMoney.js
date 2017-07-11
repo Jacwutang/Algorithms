@@ -40,9 +40,4 @@ function coinChange(change,numCoins){
 
   return coinChange(newChange,numCoins + 1)
 
-
-
-
-
-
 }
