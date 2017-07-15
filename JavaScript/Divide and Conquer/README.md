@@ -20,3 +20,17 @@ Constraints. 1 ≤ 𝑛 ≤ 105
 
 Output Format. Output 1 if the sequence contains an element that appears strictly more than 𝑛/2 times,
 and 0 otherwise
+
+3. quickSort.js
+Task. To force the given implementation of the quick sort algorithm to efficiently process sequences with
+few unique elements, your goal is replace a 2-way partition with a 3-way partition. That is, your new
+partition procedure should partition the array into three parts: < 𝑥 part, = 𝑥 part, and > 𝑥 part.
+
+Input Format. The first line of the input contains an integer 𝑛. The next line contains a sequence of 𝑛
+integers 𝑎0, 𝑎1, . . . , 𝑎𝑛−1.
+
+Constraints. 1 ≤ 𝑛 ≤ 105
+; 1 ≤ 𝑎𝑖 ≤ 109
+for all 0 ≤ 𝑖 < 𝑛.
+
+Output Format. Output this sequence sorted in non-decreasing order
