@@ -34,3 +34,10 @@ Constraints. 1 ≤ 𝑛 ≤ 105
 for all 0 ≤ 𝑖 < 𝑛.
 
 Output Format. Output this sequence sorted in non-decreasing order
+
+4. mergeSort_inversions.js
+Task. The goal in this problem is to count the number of inversions of a given sequence.
+
+Input Format. The first line contains an integer 𝑛, the next one contains a sequence of integers
+
+Output Format. Output the number of inversions in the sequence.
