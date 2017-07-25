@@ -21,7 +21,7 @@ Constraints. 1 ≤ 𝑛 ≤ 105
 Output Format. Output 1 if the sequence contains an element that appears strictly more than 𝑛/2 times,
 and 0 otherwise
 
-3. quickSort.js
+<h2> quickSort.js </h2>
 Task. To force the given implementation of the quick sort algorithm to efficiently process sequences with
 few unique elements, your goal is replace a 2-way partition with a 3-way partition. That is, your new
 partition procedure should partition the array into three parts: < 𝑥 part, = 𝑥 part, and > 𝑥 part.
@@ -35,7 +35,7 @@ for all 0 ≤ 𝑖 < 𝑛.
 
 Output Format. Output this sequence sorted in non-decreasing order
 
-4. mergeSort_inversions.js
+<h2> mergeSort_inversions.js </h2>
 Task. The goal in this problem is to count the number of inversions of a given sequence.
 
 Input Format. The first line contains an integer 𝑛, the next one contains a sequence of integers
