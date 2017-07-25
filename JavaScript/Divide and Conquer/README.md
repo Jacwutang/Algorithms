@@ -1,4 +1,4 @@
-1. binarySearch.js
+<h1> binarySearch.js </h1>
 
 Task. The goal in this code problem is to implement the binary search algorithm.
 Input Format. The first line of the input contains an integer 𝑛 and a sequence 𝑎0 < 𝑎1 < . . . < 𝑎𝑛−1 of
