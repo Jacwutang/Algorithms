@@ -162,9 +162,18 @@ end
   end
 
   def is_balanced?(tree_node = @root)
+    
+
   end
 
   def in_order_traversal(tree_node = @root, arr = [])
+    return if tree_node.nil?
+
+    in_order_traversal(tree_node.left,arr)
+    arr.push(tree_node.value)
+    in_order_traversal(tree_node.right,arr)
+    arr
+
   end
 
 
