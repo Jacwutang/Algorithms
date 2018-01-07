@@ -12,7 +12,6 @@ class BinarySearchTree
 
   def insert(value)
 
-
     if @root.nil?
       @root = BSTNode.new(value)
       return
@@ -65,10 +64,94 @@ end
   end
 
   def delete(value)
+       if value == @root.value
+         @root = nil
+         return
+       end
+
+
+      parent_node = find_parent(value, tree_node = @root)
+
+      target_node = (parent_node.left.value == value) ? parent_node.left : parent_node.right
+
+
+
+      if no_children(target_node)
+
+        if(parent_node.right.value == value)
+          parent_node.right = nil
+        else
+          parent_node.left = nil
+        end
+
+      elsif has_one_child(target_node)
+        if target_node.left.nil?
+          target_node = target_node.right
+        else
+          target_node = target_node.left
+        end
+
+        promote_node(parent_node,target_node)
+
+      else
+        max_left_sub_tree = maximum(target_node.left)
+        max_left_sub_tree_parent_node = find_parent(max_left_sub_tree.value, tree_node = @root)
+
+        promote_node_two_children(parent_node,target_node, max_left_sub_tree, max_left_sub_tree_parent_node)
+
+        # print("HELLO")
+
+
+
+
+
+      end
+
+
+
+
+
+
   end
 
+
   # helper method for #delete:
+
+  def promote_node_two_children(parent_node,target_node, max_left_sub_tree, max_left_sub_tree_parent_node)
+
+    if parent_node.value <= max_left_sub_tree.value
+      parent_node.right = max_left_sub_tree
+      promote_node(max_left_sub_tree_parent_node, max_left_sub_tree.left)
+
+
+      max_left_sub_tree.left = target_node.left if !target_node.left.nil?
+
+      max_left_sub_tree.right = target_node.right if !target_node.right.nil?
+
+      
+
+
+
+
+    else
+      parent_node.left = max_left_sub_tree
+      promote_node(max_left_sub_tree_parent_node, max_left_sub_tree.left)
+
+
+      max_left_sub_tree.left = target_node.left if !target_node.left.nil?
+
+      max_left_sub_tree.right = target_node.right if !target_node.right.nil?
+
+
+    end
+
+  end
+
   def maximum(tree_node = @root)
+    return tree_node if tree_node.right.nil?
+
+    maximum(tree_node.right)
+
   end
 
   def depth(tree_node = @root)
@@ -83,5 +166,57 @@ end
 
   private
   # optional helper methods go here:
+
+  def no_children(node)
+    return true if node.left.nil? && node.right.nil?
+    false
+  end
+
+  def has_one_child(node)
+    if node.left && node.right.nil? ||
+     node.right && node.left.nil?
+      return true
+    else
+      return false
+    end
+
+  end
+
+  def promote_node(parent,target)
+    if parent.value <= target.value
+      parent.right = target
+    else
+      parent.left = target
+    end
+  end
+
+
+  def find_parent(value,tree_node = @root)
+    # print(value,tree_node.value)
+    return nil if tree_node.nil?
+
+
+    if tree_node.left.value == value || tree_node.right.value == value
+      # print(value, ' ', tree_node.value, tree_node.left.value, tree_node.right.value)
+      return tree_node
+    end
+
+
+    if value <= tree_node.value
+        #search left sub-tree
+        left_sub_tree = find_parent(value, tree_node.left)
+
+        return left_sub_tree if  !left_sub_tree.nil?
+
+
+    else
+        #search right sub-tree
+        right_sub_tree = find_parent(value, tree_node.right)
+
+        return right_sub_tree if !right_sub_tree.nil?
+
+    end
+  end
+
 
 end
