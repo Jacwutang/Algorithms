@@ -99,12 +99,6 @@ end
 
         promote_node_two_children(parent_node,target_node, max_left_sub_tree, max_left_sub_tree_parent_node)
 
-        # print("HELLO")
-
-
-
-
-
       end
 
 
@@ -128,7 +122,7 @@ end
 
       max_left_sub_tree.right = target_node.right if !target_node.right.nil?
 
-      
+
 
 
 
@@ -155,6 +149,16 @@ end
   end
 
   def depth(tree_node = @root)
+
+    return -1 if tree_node.nil?
+
+    return (
+
+      [1 + depth(tree_node.left), 1 + depth(tree_node.right)].max
+
+    )
+    # return(10)
+
   end
 
   def is_balanced?(tree_node = @root)
