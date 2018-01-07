@@ -8,6 +8,7 @@ class BinarySearchTree
 
   def initialize
     @root = nil
+    @count = 0
   end
 
   def insert(value)
@@ -25,6 +26,7 @@ class BinarySearchTree
       if current_node.left.nil?
         current_node.left = BSTNode.new(value)
         inserted = true
+        @count += 1
       else
         current_node = current_node.left
       end
@@ -33,6 +35,7 @@ class BinarySearchTree
       if current_node.right.nil?
         inserted = true
         current_node.right = BSTNode.new(value)
+        @count += 1
       else
         current_node = current_node.right
       end
@@ -162,7 +165,12 @@ end
   end
 
   def is_balanced?(tree_node = @root)
-    
+    left_depth = depth(tree_node.left)
+    right_depth = depth(tree_node.right)
+    height = depth(tree_node)
+
+    return true if (left_depth-right_depth).abs <= 1 && height <= Math.log(@count,2)
+    false
 
   end
 
