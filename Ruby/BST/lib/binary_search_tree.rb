@@ -9,6 +9,7 @@ class BinarySearchTree
   def initialize
     @root = nil
     @count = 0
+
   end
 
   def insert(value)
