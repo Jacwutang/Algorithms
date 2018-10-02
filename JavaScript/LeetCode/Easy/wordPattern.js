@@ -1,0 +1,42 @@
+// #LC 290
+// Given a pattern and a string str, find if str follows the same pattern.
+//
+// Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.
+//
+// Example 1:
+//
+// Input: pattern = "abba", str = "dog cat cat dog"
+// Output: true
+
+var wordPattern = function(pattern, str) {
+    let hash = {};
+    str = str.split(' ');
+
+    if(pattern.length != str.length){
+        return false;
+    }
+
+    for (let i = 0; i < str.length; i++) {
+        let letter = pattern[i];
+        let word = str[i];
+        if (hash[letter] === undefined){
+            if(Object.values(hash).includes(word)){
+               return false;
+             } else{
+                hash[letter] = word;
+            }
+        }
+        else{
+            if(hash[letter] !== undefined && hash[letter] !== word ){
+               return false;
+             }
+        }
+
+
+
+    }
+
+    return true;
+
+
+};
